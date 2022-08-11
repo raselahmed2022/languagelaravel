@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReadingTable extends Migration
+class CreateWritingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,19 @@ class CreateReadingTable extends Migration
      */
     public function up()
     {
-        Schema::create('reading', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title')->nullable();
-            $table->longText('description')->nullable();
+        Schema::create('writing', function (Blueprint $table) {
+          
+            $table->id();
+        
+            $table->string('level');
+           
+            $table->string('ge_title');
+        
+            $table->string('ge_description')->nullable();
+           
             $table->timestamps();
+
+
         });
     }
 
@@ -28,6 +36,6 @@ class CreateReadingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reading');
+        Schema::dropIfExists('writing');
     }
 }

@@ -12,4 +12,5 @@ class Reading extends Model
     protected $fillable = [
         'title',
     ];
+
 }

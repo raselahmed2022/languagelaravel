@@ -24,6 +24,7 @@ return array(
     'App\\Models\\Reading' => $baseDir . '/app/Models/Reading.php',
     'App\\Models\\Speaking' => $baseDir . '/app/Models/Speaking.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\Writing' => $baseDir . '/app/Models/Writing.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

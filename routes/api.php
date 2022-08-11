@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::GET('/materials',[ApiContoller::class,'getMaterial']);
+
 Route::GET('/kechuri',[ApiContoller::class,'getListening']);
+
 Route::GET('/speaking',[ApiContoller::class,'getSpeaking']);
+Route::GET('/reading',[ApiContoller::class,'getReading']);
+Route::GET('/writing',[ApiContoller::class,'getWriting']);
+
 Route::GET('/employee',[ApiContoller::class,'getEmployee']);
 Route::POST('/speakingpost',[ApiContoller::class,'insertQuestion']);

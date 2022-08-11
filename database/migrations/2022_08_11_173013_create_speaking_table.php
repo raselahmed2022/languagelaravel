@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpeaking extends Migration
+class CreateSpeakingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,18 @@ class CreateSpeaking extends Migration
     public function up()
     {
         Schema::create('speaking', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('en_title')->nullable();
-            $table->string('ge_title')->nullable();
-            $table->longText('en_description')->nullable();
-            $table->longText('ge_description')->nullable();
+          
+            $table->id();
+        
+            $table->string('level');
+            $table->string('en_title');
+            $table->string('ge_title');
+            $table->string('en_description')->nullable();
+            $table->string('ge_description')->nullable();
+           
             $table->timestamps();
+
+
         });
     }
 

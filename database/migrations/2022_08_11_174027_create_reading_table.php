@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListeninTable extends Migration
+class CreateReadingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,19 @@ class CreateListeninTable extends Migration
      */
     public function up()
     {
-        Schema::create('listening', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->nullable();
-            $table->longText('url')->nullable();
+        Schema::create('reading', function (Blueprint $table) {
+          
+            $table->id();
+        
+            $table->string('level');
+           
+            $table->string('ge_title');
+        
+            $table->string('ge_description')->nullable();
+           
             $table->timestamps();
+
+
         });
     }
 
@@ -28,6 +36,6 @@ class CreateListeninTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listenin');
+        Schema::dropIfExists('reading');
     }
 }

@@ -6,21 +6,19 @@ use App\Models\Employee;
 use App\Models\Name;
 use App\Models\Reading;
 use App\Models\Speaking;
+use App\Models\Writing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ApiContoller extends Controller
 {
-    public function getMaterial(){
+   
+  
 
-        $data = Reading::select('title','description')->get();
+    
+    public function getWriting(){
 
-        return new JsonResponse($data);
-
-    }
-    public function getListening(){
-
-        $data = Name::select('name','url')->get();
+        $data = Writing::select('level','ge_title','ge_description')->get();
 
         return new JsonResponse($data);
 
@@ -28,11 +26,22 @@ class ApiContoller extends Controller
 
     public function getSpeaking(){
 
-        $data = Speaking::select('en_title','ge_title','en_description')->get();
+        $data = Speaking::select('level','ge_title','ge_description')->get();
 
         return new JsonResponse($data);
 
     }
+
+    public function getReading(){
+
+        $data = Reading::select('level','ge_title','ge_description')->get();
+
+        return new JsonResponse($data);
+
+    }
+
+   
+
     public function getEmployee(){
 
         $data = Employee::select('name','address','phone')->get();
