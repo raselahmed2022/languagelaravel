@@ -26,7 +26,7 @@ class ApiContoller extends Controller
 
     public function getSpeaking(){
 
-        $data = Speaking::select('level','ge_title','ge_description')->get();
+        $data = Speaking::select('level','ge_title','en_description','ge_description')->get();
 
         return new JsonResponse($data);
 
