@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::GET('/kechuri',[ApiContoller::class,'getListening']);
 
 Route::GET('/speaking/{level}',[ApiContoller::class,'getSpeaking']);
-Route::GET('/reading',[ApiContoller::class,'getReading']);
-Route::GET('/writing',[ApiContoller::class,'getWriting']);
+Route::GET('/writing/{level}',[ApiContoller::class,'getWriting']);
+Route::GET('/reading/{level}',[ApiContoller::class,'getReading']);
+//Route::GET('/writing',[ApiContoller::class,'getWriting']);
 
 Route::GET('/employee',[ApiContoller::class,'getEmployee']);
 Route::POST('/speakingpost',[ApiContoller::class,'insertQuestion']);

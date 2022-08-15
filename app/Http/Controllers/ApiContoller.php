@@ -17,11 +17,14 @@ class ApiContoller extends Controller
   
 
     
-    public function getWriting(){
+    public function getWriting(Request $request){
 
-        $data = Writing::select('level','ge_title','ge_description')->get();
+        $data = DB::table('writing')
+        ->selectRaw('level,ge_title,ge_description')
+        ->where('level', $request->level)
+        ->get();
 
-        return new JsonResponse($data);
+    return new JsonResponse($data);
 
     }
 
@@ -36,11 +39,14 @@ class ApiContoller extends Controller
 
     }
 
-    public function getReading(){
+    public function getReading(Request $request){
 
-        $data = Reading::select('level','ge_title','ge_description')->get();
+        $data = DB::table('reading')
+        ->selectRaw('level,ge_title,ge_description')
+        ->where('level', $request->level)
+        ->get();
 
-        return new JsonResponse($data);
+    return new JsonResponse($data);
 
     }
 
