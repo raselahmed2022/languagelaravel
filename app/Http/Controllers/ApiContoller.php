@@ -9,6 +9,7 @@ use App\Models\Speaking;
 use App\Models\Writing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApiContoller extends Controller
 {
@@ -24,9 +25,12 @@ class ApiContoller extends Controller
 
     }
 
-    public function getSpeaking(){
+    public function getSpeaking(Request $request){
 
-        $data = Speaking::select('level','ge_title','en_description','ge_description')->get();
+        $data = DB::table('speaking')
+            ->selectRaw('level,ge_title,en_description,ge_description')
+            ->where('level', $request->level)
+            ->get();
 
         return new JsonResponse($data);
 
