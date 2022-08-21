@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\ModalVerbs;
 use App\Models\Name;
 use App\Models\Reading;
 use App\Models\Speaking;
+use App\Models\Tense;
+use App\Models\TenseLessons;
 use App\Models\Writing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -55,6 +58,27 @@ class ApiContoller extends Controller
     public function getEmployee(){
 
         $data = Employee::select('name','address','phone')->get();
+
+        return new JsonResponse($data);
+
+    }
+    public function getModalVerb(){
+
+        $data = ModalVerbs::select('title','url','description')->get();
+
+        return new JsonResponse($data);
+
+    }
+    public function getTense(){
+
+        $data = Tense::select('title','url',)->get();
+
+        return new JsonResponse($data);
+
+    }
+    public function getTenseLessons(){
+
+        $data = TenseLessons::select('questions','options','answer','hint')->get();
 
         return new JsonResponse($data);
 

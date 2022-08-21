@@ -20,7 +20,10 @@ Route::GET('/kechuri',[ApiContoller::class,'getListening']);
 Route::GET('/speaking/{level}',[ApiContoller::class,'getSpeaking']);
 Route::GET('/writing/{level}',[ApiContoller::class,'getWriting']);
 Route::GET('/reading/{level}',[ApiContoller::class,'getReading']);
-//Route::GET('/writing',[ApiContoller::class,'getWriting']);
 
+//Route::GET('/writing',[ApiContoller::class,'getWriting']);
+Route::GET('/modalverb',[ApiContoller::class,'getModalVerb']);
+Route::GET('/tense',[ApiContoller::class,'getTense']);
+Route::GET('/tenselessons',[ApiContoller::class,'getTenseLessons']);
 Route::GET('/employee',[ApiContoller::class,'getEmployee']);
 Route::POST('/speakingpost',[ApiContoller::class,'insertQuestion']);
