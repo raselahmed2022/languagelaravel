@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Employee;
 use App\Models\ModalVerbs;
 use App\Models\Name;
@@ -9,6 +10,7 @@ use App\Models\Reading;
 use App\Models\Speaking;
 use App\Models\Tense;
 use App\Models\TenseLessons;
+use App\Models\UsersRegister;
 use App\Models\Writing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -84,37 +86,97 @@ class ApiContoller extends Controller
 
     }
 
-    // public function insertQuestion(Request $request)
-    // {
+    public function getCategory(){
 
-    //     $title = $request->get('en_title');
-    //     $title = $request->get('ge_title');
-    //     $description = $request->get('en_description');
-    //     $description = $request->get('ge_description');
+        $data = Category::select('id','category','url')->get();
 
+        return new JsonResponse($data);
 
+    } 
+    
+    public function insertUsersRegister(Request $request)
+    {
 
-
-    //     $my_ask = new Speaking();
-    //     $my_ask->en_title = $title;
-    //      $my_ask->ge_title = $title;
-    //     $my_ask->en_description = $description;
-    //     $my_ask->ge_description = $description;
-    //     $my_ask->save();
-
-
-
-
-    //     return new JsonResponse([
-    //         'message' => 'Insert Successful',
-    //         'status' => 200
-    //     ]);
+       $fullname= $request->get('fullnames');
+        $email = $request->get('email');
+      $address = $request->get('residental_address');
+      $nationality = $request->get('nationality');
+      $debitcard = $request->get('credit_debit_card');
+      $passportnumber = $request->get('passport_national_ID');
+     $contactnumber = $request->get('contact_number');
+      
 
 
+       $my_ask = new UsersRegister();
+       $my_ask->full_name = $fullname;
+        $my_ask->email = $email;
+       $my_ask->residential_address = $address;
+       $my_ask->nationality = $nationality;
+       $my_ask->debit_credit_card = $debitcard;
+       $my_ask->passport_national_ID= $passportnumber;
+       $my_ask->contact_number = $contactnumber;
+     
+   
+
+
+       $my_ask->save();
 
 
 
-    // }
+
+        return new JsonResponse([
+           'message' => 'Insert Successful',
+            'status' => 200
+        ]);
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+    public function insertQuestion(Request $request)
+     {
+
+        
+        $level = $request->get('level');
+        $title = $request->get('en_title');
+       $title1 = $request->get('ge_title');
+       $description = $request->get('en_description');
+       $description1 = $request->get('ge_description');
+
+
+
+
+       $my_ask = new Speaking();
+     
+       $my_ask->level = $level;
+        $my_ask->en_title = $title;
+         $my_ask->ge_title = $title1;
+         $my_ask->en_description = $description;
+         $my_ask->ge_description = $description1;
+         $my_ask->save();
+
+
+
+
+        return new JsonResponse([
+             'message' => 'Insert Successful',
+             'status' => 200
+         ]);
+
+
+
+
+
+     }
 
 
    

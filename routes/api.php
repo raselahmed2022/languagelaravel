@@ -24,6 +24,10 @@ Route::GET('/reading/{level}',[ApiContoller::class,'getReading']);
 //Route::GET('/writing',[ApiContoller::class,'getWriting']);
 Route::GET('/modalverb',[ApiContoller::class,'getModalVerb']);
 Route::GET('/tense',[ApiContoller::class,'getTense']);
+
+Route::GET('/category',[ApiContoller::class,'getCategory']);
 Route::GET('/tenselessons',[ApiContoller::class,'getTenseLessons']);
 Route::GET('/employee',[ApiContoller::class,'getEmployee']);
 Route::POST('/speakingpost',[ApiContoller::class,'insertQuestion']);
+Route::POST('/usersregister',[ApiContoller::class,'insertUsersRegister']);
+
