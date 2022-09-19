@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\LoginData;
 use App\Models\ModalVerbs;
 use App\Models\Name;
+use App\Models\PartsOfSpeech;
 use App\Models\Reading;
 use App\Models\Speaking;
 use App\Models\Tense;
 use App\Models\TenseLessons;
 use App\Models\UsersRegister;
+use App\Models\Vocabulary;
 use App\Models\Writing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -78,6 +81,15 @@ class ApiContoller extends Controller
         return new JsonResponse($data);
 
     }
+
+    public function getPartsOfSpeech(){
+
+        $data = PartsOfSpeech::select('title','url')->get();
+
+        return new JsonResponse($data);
+
+    }
+
     public function getTenseLessons(){
 
         $data = TenseLessons::select('questions','options','answer','hint')->get();
@@ -85,6 +97,89 @@ class ApiContoller extends Controller
         return new JsonResponse($data);
 
     }
+
+
+
+    public function getVocabulary(){
+
+        $data = Vocabulary::select('ge_word','en_word','example','url','category_id')
+        ->with('category:id,category,url')
+        ->get();
+
+        return new JsonResponse($data);
+
+    }
+
+
+
+
+
+    public function insertLoginData(Request $request)
+    {
+
+       $username = $request->get('username');
+        $password = $request->get('password');
+     
+             
+        $user = 
+        LoginData::where('user_name',$username)
+        ->where('password',$password)
+        ->first();
+        
+        if($user){
+
+          $data= DB::table('logindata')->selectRaw('id,user_name,contact_number')->where('user_name',$username)->get();
+
+         
+          return new JsonResponse($data);
+
+        }else{
+         
+
+            return new JsonResponse([
+                'message' => 'username or password wrong',
+                 'status' => 404
+             ]);
+     
+        }
+
+    }
+    public function insertForgetPassword(Request $request)
+    {
+
+       $username = $request->get('username');
+      //  $password = $request->get('password');
+     
+             
+        $user = 
+        LoginData::where('user_name',$username)
+       // ->where('password',$password)
+        ->first();
+        
+        if($user){
+
+          $data= DB::table('logindata')->selectRaw('id,password')->where('user_name',$username)->get();
+
+         
+          return new JsonResponse($data);
+
+        }else{
+         
+
+            return new JsonResponse([
+                'message' => 'username not found',
+                 'status' => 404
+             ]);
+     
+        }
+
+    }
+
+
+
+
+
+
 
     public function getCategory(){
 
@@ -179,6 +274,7 @@ class ApiContoller extends Controller
      }
 
 
+    
    
 
 
