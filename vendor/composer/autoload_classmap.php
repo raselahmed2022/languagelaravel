@@ -26,6 +26,7 @@ return array(
     'App\\Models\\Name' => $baseDir . '/app/Models/Name.php',
     'App\\Models\\PartsOfSpeech' => $baseDir . '/app/Models/PartsOfSpeech.php',
     'App\\Models\\Reading' => $baseDir . '/app/Models/Reading.php',
+    'App\\Models\\ReadingFuck' => $baseDir . '/app/Models/ReadingFuck.php',
     'App\\Models\\Speaking' => $baseDir . '/app/Models/Speaking.php',
     'App\\Models\\Tense' => $baseDir . '/app/Models/Tense.php',
     'App\\Models\\TenseLessons' => $baseDir . '/app/Models/TenseLessons.php',

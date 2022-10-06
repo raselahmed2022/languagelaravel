@@ -20,6 +20,7 @@ Route::GET('/kechuri',[ApiContoller::class,'getListening']);
 Route::GET('/speaking/{level}',[ApiContoller::class,'getSpeaking']);
 Route::GET('/writing/{level}',[ApiContoller::class,'getWriting']);
 Route::GET('/reading/{level}',[ApiContoller::class,'getReading']);
+Route::GET('/readingfuck/{level}',[ApiContoller::class,'getReadingFuck']);
 
 //Route::GET('/writing',[ApiContoller::class,'getWriting']);
 Route::GET('/modalverb',[ApiContoller::class,'getModalVerb']);

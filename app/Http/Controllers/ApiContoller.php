@@ -60,6 +60,17 @@ class ApiContoller extends Controller
 
     }
 
+    public function getReadingFuck(Request $request){
+
+        $data = DB::table('readingfuck')
+        ->selectRaw('level,ge_title,ge_description')
+        ->where('level', $request->level)
+        ->get();
+
+    return new JsonResponse($data);
+
+    }
+
    
 
     public function getEmployee(){
