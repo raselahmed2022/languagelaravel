@@ -12,9 +12,11 @@ use App\Models\Reading;
 use App\Models\Speaking;
 use App\Models\Tense;
 use App\Models\TenseLessons;
+use App\Models\Tensepractcie;
 use App\Models\UsersRegister;
 use App\Models\Vocabulary;
 use App\Models\Writing;
+use CreateTensepractice;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -81,6 +83,17 @@ class ApiContoller extends Controller
         return new JsonResponse($data);
 
     }
+    public function getTensePractice(){
+
+        $data =Tensepractcie::select('title','url','Description')->get();
+
+        return new JsonResponse($data);
+
+    }
+
+
+
+
 
     public function getPartsOfSpeech(){
 

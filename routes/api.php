@@ -29,6 +29,7 @@ Route::GET('/partsofspeech',[ApiContoller::class,'getPartsOfSpeech']);
 
 
 Route::GET('/vocabulary',[ApiContoller::class,'getVocabulary']);
+Route::GET('/tensepractice',[ApiContoller::class,'getTensePractice']);
 Route::GET('/category',[ApiContoller::class,'getCategory']);
 Route::GET('/tenselessons',[ApiContoller::class,'getTenseLessons']);
 Route::GET('/employee',[ApiContoller::class,'getEmployee']);

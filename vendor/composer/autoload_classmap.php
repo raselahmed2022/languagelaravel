@@ -29,6 +29,7 @@ return array(
     'App\\Models\\Speaking' => $baseDir . '/app/Models/Speaking.php',
     'App\\Models\\Tense' => $baseDir . '/app/Models/Tense.php',
     'App\\Models\\TenseLessons' => $baseDir . '/app/Models/TenseLessons.php',
+    'App\\Models\\Tensepractcie' => $baseDir . '/app/Models/Tensepractcie.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UsersRegister' => $baseDir . '/app/Models/UsersRegister.php',
     'App\\Models\\Vocabulary' => $baseDir . '/app/Models/Vocabulary.php',

@@ -539,6 +539,7 @@ class ComposerStaticInit472355519a29eb24fc20a1304150f4b6
         'App\\Models\\Speaking' => __DIR__ . '/../..' . '/app/Models/Speaking.php',
         'App\\Models\\Tense' => __DIR__ . '/../..' . '/app/Models/Tense.php',
         'App\\Models\\TenseLessons' => __DIR__ . '/../..' . '/app/Models/TenseLessons.php',
+        'App\\Models\\Tensepractcie' => __DIR__ . '/../..' . '/app/Models/Tensepractcie.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UsersRegister' => __DIR__ . '/../..' . '/app/Models/UsersRegister.php',
         'App\\Models\\Vocabulary' => __DIR__ . '/../..' . '/app/Models/Vocabulary.php',
