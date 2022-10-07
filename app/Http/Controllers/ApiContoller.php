@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\Grammar;
 use App\Models\LoginData;
 use App\Models\ModalVerbs;
 use App\Models\Name;
@@ -49,17 +50,7 @@ class ApiContoller extends Controller
 
     }
 
-    public function getReading(Request $request){
-
-        $data = DB::table('reading')
-        ->selectRaw('level,ge_title,ge_description')
-        ->where('level', $request->level)
-        ->get();
-
-    return new JsonResponse($data);
-
-    }
-
+   
     public function getReadingFuck(Request $request){
 
         $data = DB::table('readingfuck')
@@ -71,7 +62,19 @@ class ApiContoller extends Controller
 
     }
 
-   
+    public function getReadingQuestion(Request $request){
+
+        $data = DB::table('readingquestion')
+        ->selectRaw('level,title,passage,questions')
+        ->where('level', $request->level)
+        ->get();
+
+        foreach($data as $index => $aData){
+            $data[$index]->questions = json_decode($aData->questions);
+        }
+
+    return new JsonResponse($data);
+    }
 
     public function getEmployee(){
 
@@ -80,6 +83,7 @@ class ApiContoller extends Controller
         return new JsonResponse($data);
 
     }
+
     public function getModalVerb(){
 
         $data = ModalVerbs::select('title','url','description')->get();
@@ -87,6 +91,16 @@ class ApiContoller extends Controller
         return new JsonResponse($data);
 
     }
+    public function getGrammar(){
+
+        $data = Grammar::select('title','url','description')->get();
+
+        return new JsonResponse($data);
+
+    }
+
+
+
     public function getTense(){
 
         $data = Tense::select('title','url',)->get();

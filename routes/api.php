@@ -21,9 +21,12 @@ Route::GET('/speaking/{level}',[ApiContoller::class,'getSpeaking']);
 Route::GET('/writing/{level}',[ApiContoller::class,'getWriting']);
 Route::GET('/reading/{level}',[ApiContoller::class,'getReading']);
 Route::GET('/readingfuck/{level}',[ApiContoller::class,'getReadingFuck']);
+Route::GET('/readingquestion/{level}',[ApiContoller::class,'getReadingQuestion']);
+
 
 //Route::GET('/writing',[ApiContoller::class,'getWriting']);
 Route::GET('/modalverb',[ApiContoller::class,'getModalVerb']);
+Route::GET('/grammar',[ApiContoller::class,'getGrammar']);
 Route::GET('/tense',[ApiContoller::class,'getTense']);
 Route::GET('/partsofspeech',[ApiContoller::class,'getPartsOfSpeech']);
 
