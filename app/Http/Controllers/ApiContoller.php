@@ -138,9 +138,12 @@ class ApiContoller extends Controller
 
 
 
-    public function getVocabulary(){
+    public function getVocabulary(Request $request){
+
+      
 
         $data = Vocabulary::select('ge_word','en_word','example','url','category_id')
+        ->where('id', $request->id)
         ->with('category:id,category,url')
         ->get();
 
