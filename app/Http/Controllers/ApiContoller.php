@@ -143,7 +143,7 @@ class ApiContoller extends Controller
       
 
         $data = Vocabulary::select('ge_word','en_word','example','url','category_id')
-        ->where('id', $request->id)
+        ->where('category_id', $request->id)
         ->with('category:id,category,url')
         ->get();
 
